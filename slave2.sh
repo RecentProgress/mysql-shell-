@@ -30,6 +30,8 @@ mysql -uroot -p$csqlpass -e "change master to master_host = '$zip', master_user 
 
 mysql -uroot -p$csqlpass -e "slave start;"
 
+sleep 10s
+
 IO_status=`mysql -uroot -p$csqlpass -e 'show slave status \G;' |grep IO_Running`
 
 SQL_status=`mysql -uroot -p$csqlpass -e 'show slave status \G;' |grep SQL_Running`
